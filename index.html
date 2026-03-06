@@ -25,8 +25,27 @@
 </head>
 
 <body>
-    <h1 class="">hello codders</h1>
+    <main class="bg-base-300 h-screen flex justify-center items-center">
+        <fieldset
+            class="fieldset bg-base-100 border-base-200 rounded-box w-xs p-5 shadow-md">
+            <div class="banner text-center justify-items-center">
+                <img src="assets/github-logo.png" alt="" class="mb-4">
+                <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
+                <h3 class="mb-4">Sign in to manage your issues</h3>
+            </div>
 
+
+            <label class="label">Username</label>
+            <input type="email" class="input" placeholder="Enter Username" />
+            <p class="text-primary">Default: admin</p>
+
+            <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Enter Password" />
+            <p class="text-primary">Default: admin123</p>
+
+            <button class="btn btn-primary mt-2">Login</button>
+        </fieldset>
+    </main>
 
     <script src="js/login.js"></script>
 </body>
