@@ -25,25 +25,30 @@
 </head>
 
 <body>
-    <main class="bg-base-300 h-screen flex justify-center items-center">
-        <fieldset
-            class="fieldset bg-base-100 border-base-200 rounded-box w-xs p-5 shadow-md">
+    <main class="bg-base-300 flex justify-center items-center">
+        <fieldset class="fieldset bg-base-100 border-base-200 rounded-box w-xs p-5 shadow-md my-8">
             <div class="banner text-center justify-items-center">
                 <img src="assets/github-logo.png" alt="" class="mb-4">
                 <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
-                <h3 class="mb-4">Sign in to manage your issues</h3>
+                <h3 class="mb-4 text-gray-500">Sign in to manage your issues</h3>
             </div>
 
 
             <label class="label">Username</label>
-            <input type="email" class="input" placeholder="Enter Username" />
+            <input id="username" type="text" class="input" placeholder="Enter Username" />
             <p class="text-primary">Default: admin</p>
 
             <label class="label">Password</label>
-            <input type="password" class="input" placeholder="Enter Password" />
+            <input id="password" type="password" class="input" placeholder="Enter Password" />
             <p class="text-primary">Default: admin123</p>
 
-            <button class="btn btn-primary mt-2">Login</button>
+            <button class="btn btn-primary my-2">Login</button>
+
+            <div class="divider">OR</div>
+            <p class="mb-2 text-gray-500 text-center">Demo Credentials:</p>
+            <div class="bg-base-200 p-4 text-center rounded">Username: admin<br>
+                Password: admin123</div>
+
         </fieldset>
     </main>
 
