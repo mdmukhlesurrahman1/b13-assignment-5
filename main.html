@@ -24,9 +24,91 @@
 
 </head>
 
-<body>
-    <h1 class="text-center">Home</h1>
+<body class="bg-base-300 min-h-screen">
+    <header class="bg-base-100 sticky top-0 shadow-md mb-8 py-2">
+        <nav class="w-11/12 mx-auto flex flex-col md:flex-row justify-between gap-4">
+            <div class="logo flex items-center gap-2 justify-center">
+                <img src="assets/github-logo.png" alt="" width="40px">
+                <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
 
+            </div>
+            <div class="search-section flex gap-2 items-center">
+                <input id="search" type="text" placeholder="🔎︎ Search Issues..."
+                    class="p-2 rounded border-base-300 w-full">
+                <input id="searchBtn" type="submit" value="🔎︎ Search" class="btn btn-primary">
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="w-10/12 mx-auto">
+
+        <section class="sticky top-30 md:top-16">
+            <!-- all tabs -->
+            <section class="bg-base-100 rounded shadow-sm p-2 space-x-2 mb-2">
+
+                <button id="all" class="btn btn-outline btn-primary w-20">All</button>
+                <button id="open" class="btn btn-outline btn-primary w-20">Open</button>
+                <button id="closed" class="btn btn-outline btn-primary w-20">Closed</button>
+
+            </section>
+            <!-- statistics -->
+            <section class="bg-base-100 rounded-t p-2 shadow-sm flex justify-between">
+                <div class="flex gap-1 items-center">
+                    <img src="assets/Aperture.png" class="bg-base-300 p-2 rounded-full">
+                    <div>
+                        <h2 id="count" class="text-xl font-bold">0 issues</h2>
+                        <p>Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/Open-Status.png" alt=""> Open
+                    <img src="assets/Closed- Status .png" alt=""> Closed
+                </div>
+            </section>
+
+        </section>
+        <section id="cards">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa perferendis ab corporis animi, illo est,
+                quis iure quidem doloremque odit, voluptates a hic non natus sunt! Tempora quasi nostrum ipsam?
+                Inventore nostrum aliquid reprehenderit ipsa dolorum ad quasi, esse atque vitae, mollitia vel pariatur
+                rem labore consequatur eius aut ea dicta deleniti dolor nam placeat commodi harum. Illo amet quasi in
+                debitis eius sed voluptatibus saepe cumque nisi dolorem itaque totam unde neque dolores dolor, obcaecati
+                enim doloremque illum iste officiis praesentium nam vitae sint fugit. Quos hic expedita culpa sunt
+                veritatis nostrum deserunt facere quis atque eaque, adipisci optio, consequatur at distinctio molestiae
+                quod maxime illum sapiente aperiam. Sint eaque quidem sunt molestiae doloribus quam ut sit, corporis
+                aperiam quia incidunt nisi illo harum fuga nesciunt repellendus atque aspernatur distinctio, reiciendis
+                sapiente unde vel impedit exercitationem sequi. Modi enim vel illum illo expedita id a sapiente aperiam
+                nam magni? Soluta at fugit sunt sequi tempore? Commodi modi beatae, esse facilis, veniam cum nulla in
+                quos quaerat dolorem adipisci eius. Sed dolorem magnam, assumenda a veniam odit praesentium sequi vel
+                atque iste laudantium illum dolore nulla perferendis consequuntur exercitationem totam delectus, maxime
+                laborum inventore alias libero quis! Excepturi et aliquam praesentium quia. Incidunt dolorum minus
+                veritatis quia libero corrupti dolores ea aliquid deleniti odio excepturi sequi quas rem doloremque quo
+                nemo, eveniet optio enim, possimus tempore ex esse cumque magnam id? Aut harum quo quibusdam, quisquam
+                quas eos, magnam dolor, at qui illum consectetur vero pariatur maxime aliquid modi? Reiciendis deleniti
+                nostrum reprehenderit libero neque provident et quas fuga laborum veritatis, aliquid iste dolorem
+                voluptate soluta molestias ducimus repudiandae harum, saepe laudantium consectetur amet ex explicabo
+                ratione! Quisquam corrupti laborum sunt ratione, enim consequatur vitae aperiam ipsam nihil architecto
+                atque vero delectus adipisci necessitatibus dolores quia voluptatem. Autem, facilis quis perspiciatis,
+                enim, unde fuga aliquam excepturi maiores quaerat accusamus corporis. Sunt iure mollitia adipisci.
+                Numquam dolor beatae a exercitationem fugiat inventore dolores similique doloribus eius placeat ipsa
+                porro obcaecati odit molestiae ad, maxime laboriosam, vitae, explicabo soluta! Rerum laboriosam
+                dignissimos aliquam iure. Possimus est ipsa numquam, quam qui eos recusandae velit distinctio minus
+                minima, sapiente nihil, eligendi dolorem eum dolorum vel veniam delectus corrupti sint omnis ipsam
+                corporis molestiae fugiat? Dolorum expedita pariatur blanditiis quia tenetur sed nostrum animi illum
+                ducimus architecto, alias, cupiditate iste. Doloremque similique est, in, earum consequuntur velit
+                asperiores iste, iure illo reprehenderit excepturi quos obcaecati. Unde harum, totam dolores sint
+                similique nisi eaque possimus cupiditate at neque fugiat odio, non molestias dolorem deserunt corrupti
+                repudiandae accusamus vero dicta? Quidem tempora rerum officia dolores mollitia enim vero quos.
+                Perspiciatis ut deserunt natus nobis. Atque est officiis deserunt, molestiae, ipsam nesciunt voluptate
+                rem unde dignissimos, ea vero quasi quaerat pariatur perspiciatis qui? Hic odit corrupti, nemo culpa
+                tempore iure possimus saepe dolorum esse praesentium. Eligendi dolor ex quam ad quo fugiat suscipit
+                adipisci magni temporibus autem, excepturi itaque veritatis! Quidem aliquid maxime odio, animi rerum
+                molestias in, sed necessitatibus ex delectus dolorum? Nihil porro ab asperiores rerum?</p>
+
+        </section>
+
+    </main>
 
     <script src="js/main.js"></script>
 </body>
