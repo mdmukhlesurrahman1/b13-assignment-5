@@ -1,8 +1,9 @@
+let currentTab = "all";
+
 const cardsSection = document.getElementById("cards");
 const count = document.getElementById("count");
 const loading = document.getElementById("loading");
 const allIssue = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
-
 
 // modal get element by id
 const showIssue = document.getElementById("show_issue");
@@ -13,10 +14,6 @@ const modalLabels = document.getElementById("modal-labels");
 const modalDescription = document.getElementById("modal-description");
 const modalAssignee = document.getElementById("modal-assignee");
 const modalPriority = document.getElementById("modal-priority");
-
-
-
-let currentTab = "all";
 
 // Switch Tab Create
 function switchTab(tab) {
@@ -32,8 +29,7 @@ function switchTab(tab) {
             tabName.classList.remove('btn-active');
         }
     }
-    console.log(currentTab);
-
+    getData(allIssue);
 };
 
 // show loading
@@ -69,7 +65,19 @@ async function getData(src) {
     showLoading();
     const res = await fetch(src);
     const data = await res.json();
-    displayData(data.data);
+    const allIssue = data.data;
+    // for open
+    const openIssue = allIssue.filter(issue => issue.status === "open");
+    const closedIssue = allIssue.filter(issue => issue.status === "closed");
+    if (currentTab === "open") {
+        displayData(openIssue);
+    }
+    else if (currentTab === "closed") {
+        displayData(closedIssue);
+    }
+    else {
+        displayData(allIssue);
+    }
     hideLoading();
 };
 
@@ -111,15 +119,13 @@ function displayData(allData) {
     });
 };
 
-getData(allIssue);
-switchTab(currentTab);
-
 // modal showing....
 async function showIssueModal(id) {
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
     const data = await res.json();
     const issue = data.data;
     modalTitle.innerText = issue.title;
+    // conditional Status
     if (issue.status === "open") {
         modalStatus.innerText = "Opened";
         modalStatus.className = "badge bg-[#00A96E] rounded-full font-bold text-base-100";
@@ -130,11 +136,22 @@ async function showIssueModal(id) {
         modalStatus.className = "badge bg-[#A855F7] rounded-full font-bold text-base-100";
         modalTagline.innerText = `• Closed by ${issue.author} • ${dateFormat(issue.createdAt)}`;
     }
-
-
+    // labels Add
+    modalLabels.innerHTML = '';
+    const labels = issue.labels;
+    for (let lbl of labels) {
+        const label = document.createElement('div');
+        label.className = "badge badge-warning border-warning badge-soft rounded-full uppercase";
+        label.innerText = lbl;
+        modalLabels.append(label);
+    }
+    // other information
     modalDescription.innerText = issue.description;
-    modalAssignee.innerText = issue.assignee;
+    modalAssignee.innerText = issue.assignee ? issue.assignee : "Not Found";
     modalPriority.innerText = issue.priority;
-
     showIssue.showModal();
-}
+};
+
+
+getData(allIssue);
+switchTab(currentTab);
