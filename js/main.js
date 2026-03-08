@@ -3,6 +3,25 @@ const count = document.getElementById("count");
 const loading = document.getElementById("loading");
 const allIssue = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
+
+let currentTab = "all";
+
+// Switch Tab Create
+function switchTab(tab) {
+    const tabs = ["all", "open", "closed"]
+    currentTab = tab;
+    // Button Style
+    for (const t of tabs) {
+        const tabName = document.getElementById(t);
+        if (t === tab) {
+            tabName.classList.add('btn-active');
+        }
+        else {
+            tabName.classList.remove('btn-active');
+        }
+    }
+};
+
 // show loading
 function showLoading() {
     loading.classList.remove("hidden");
@@ -25,7 +44,7 @@ function dateFormat(apiDate) {
 };
 // label design
 const labelDesign = (arr) => {
-    const htmlElements = arr.map((el) => `<span class="badge badge-soft badge-error rounded-full flex items-center border-error text-xs uppercase">${el}</span>`);
+    const htmlElements = arr.map((el) => `<span class="badge badge-soft badge-warning rounded-full flex items-center border-warning text-xs uppercase">${el}</span>`);
     console.log(htmlElements);
     return htmlElements.join(" ");
 };
@@ -78,3 +97,4 @@ function displayData(allData) {
 };
 
 getData(allIssue);
+switchTab(currentTab);

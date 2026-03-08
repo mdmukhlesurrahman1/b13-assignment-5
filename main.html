@@ -55,9 +55,10 @@
             <!-- all tabs -->
             <section class="bg-base-100 rounded-lg shadow-sm py-2 px-4 space-x-2 mb-2">
 
-                <button id="all" class="btn btn-outline btn-primary w-20 h-8">All</button>
-                <button id="open" class="btn btn-outline btn-primary w-20 h-8">Open</button>
-                <button id="closed" class="btn btn-outline btn-primary w-20 h-8">Closed</button>
+                <button onclick="switchTab('all')" id="all" class="btn btn-outline btn-primary w-20 h-8">All</button>
+                <button onclick="switchTab('open')" id="open" class="btn btn-outline btn-primary w-20 h-8">Open</button>
+                <button onclick="switchTab('closed')" id="closed"
+                    class="btn btn-outline btn-primary w-20 h-8">Closed</button>
 
             </section>
             <!-- statistics -->
@@ -80,6 +81,20 @@
             </section>
 
         </section>
+
+        <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
 
         <!-- loading spinner -->
 
@@ -119,7 +134,7 @@
                     <p class="text-gray-500 text-sm ">1/15/2024</p>
                 </div>
             </div> -->
-        
+
         </section>
 
     </main>
