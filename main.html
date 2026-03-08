@@ -82,27 +82,27 @@
 
         </section>
 
-        <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
-        <dialog id="my_modal_1" class="modal">
+        <!-- modal design -->
+
+        <dialog id="show_issue" class="modal">
             <div class="modal-box">
-                <h3 class="text-lg font-bold">${element.title}</h3>
+                <h3 id="modal-title" class="text-lg font-bold">title</h3>
                 <div class="flex items-center gap-2 mt-2 mb-6">
-                    <div class="badge badge-success rounded-full font-bold text-base-100">open</div>
-                    <p class="text-sm text-gray-500">opend by sjsjsj • time</p>
+                    <div id="modal-status" class="badge bg-[#00A96E] rounded-full font-bold text-base-100">open/close</div>
+                    <p id="modal-tagline" class="text-sm text-gray-500">tagline</p>
                 </div>
-                <div class="flex flex-wrap gap-2 items-center">
-                    <div class="badge badge-warning border-warning badge-soft rounded-full">bug</div>
+                <div id="modal-labels" class="flex flex-wrap gap-2 items-center">
                     <div class="badge badge-warning border-warning badge-soft rounded-full">bug</div>
                 </div>
-                <p class="text-sm text-gray-500 my-6">${element.description}</p>
+                <p id="modal-description" class="text-sm text-gray-500 my-6">description</p>
                 <div class="card grid grid-cols-2 p-4 bg-base-200">
                     <div class="space-y-2">
                         <p class="text-sm text-gray-500">Assignee:</p>
-                        <p class="font-bold">Assignee name</p>
+                        <p id="modal-assignee" class="font-bold">Assignee name</p>
                     </div>
                     <div class="space-y-2">
                         <p class="text-sm text-gray-500">Priority:</p>
-                        <div class="badge badge-error rounded-full font-bold text-base-100 uppercase">high</div>
+                        <div id="modal-priority" class="badge badge-error rounded-full font-bold text-base-100 uppercase">high</div>
                     </div>
                 </div>
 

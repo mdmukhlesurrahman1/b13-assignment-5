@@ -4,6 +4,18 @@ const loading = document.getElementById("loading");
 const allIssue = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
 
+// modal get element by id
+const showIssue = document.getElementById("show_issue");
+const modalTitle = document.getElementById("modal-title");
+const modalStatus = document.getElementById("modal-status");
+const modalTagline = document.getElementById("modal-tagline");
+const modalLabels = document.getElementById("modal-labels");
+const modalDescription = document.getElementById("modal-description");
+const modalAssignee = document.getElementById("modal-assignee");
+const modalPriority = document.getElementById("modal-priority");
+
+
+
 let currentTab = "all";
 
 // Switch Tab Create
@@ -20,6 +32,8 @@ function switchTab(tab) {
             tabName.classList.remove('btn-active');
         }
     }
+    console.log(currentTab);
+
 };
 
 // show loading
@@ -45,9 +59,10 @@ function dateFormat(apiDate) {
 // label design
 const labelDesign = (arr) => {
     const htmlElements = arr.map((el) => `<span class="badge badge-soft badge-warning rounded-full flex items-center border-warning text-xs uppercase">${el}</span>`);
-    console.log(htmlElements);
+    // console.log(htmlElements);
     return htmlElements.join(" ");
 };
+
 
 // get data function
 async function getData(src) {
@@ -74,7 +89,7 @@ function displayData(allData) {
         // set html code
         card.innerHTML = `
                 
-                <div class="p-4 space-y-2 h-full">
+                <div class="p-4 space-y-2 h-full cursor-pointer" onclick="showIssueModal(${element.id})">
                     <div class="flex justify-between items-center">
                         <img src="assets/${element.status}.png" alt="">
                         <div class="badge badge-soft badge-error rounded-full font-bold uppercase">
@@ -98,3 +113,28 @@ function displayData(allData) {
 
 getData(allIssue);
 switchTab(currentTab);
+
+// modal showing....
+async function showIssueModal(id) {
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+    const data = await res.json();
+    const issue = data.data;
+    modalTitle.innerText = issue.title;
+    if (issue.status === "open") {
+        modalStatus.innerText = "Opened";
+        modalStatus.className = "badge bg-[#00A96E] rounded-full font-bold text-base-100";
+        modalTagline.innerText = `• Opened by ${issue.author} • ${dateFormat(issue.createdAt)}`;
+    }
+    else {
+        modalStatus.innerText = "Closed";
+        modalStatus.className = "badge bg-[#A855F7] rounded-full font-bold text-base-100";
+        modalTagline.innerText = `• Closed by ${issue.author} • ${dateFormat(issue.createdAt)}`;
+    }
+
+
+    modalDescription.innerText = issue.description;
+    modalAssignee.innerText = issue.assignee;
+    modalPriority.innerText = issue.priority;
+
+    showIssue.showModal();
+}
