@@ -85,12 +85,31 @@
         <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
         <dialog id="my_modal_1" class="modal">
             <div class="modal-box">
-                <h3 class="text-lg font-bold">Hello!</h3>
-                <p class="py-4">Press ESC key or click the button below to close</p>
+                <h3 class="text-lg font-bold">${element.title}</h3>
+                <div class="flex items-center gap-2 mt-2 mb-6">
+                    <div class="badge badge-success rounded-full font-bold text-base-100">open</div>
+                    <p class="text-sm text-gray-500">opend by sjsjsj • time</p>
+                </div>
+                <div class="flex flex-wrap gap-2 items-center">
+                    <div class="badge badge-warning border-warning badge-soft rounded-full">bug</div>
+                    <div class="badge badge-warning border-warning badge-soft rounded-full">bug</div>
+                </div>
+                <p class="text-sm text-gray-500 my-6">${element.description}</p>
+                <div class="card grid grid-cols-2 p-4 bg-base-200">
+                    <div class="space-y-2">
+                        <p class="text-sm text-gray-500">Assignee:</p>
+                        <p class="font-bold">Assignee name</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-sm text-gray-500">Priority:</p>
+                        <div class="badge badge-error rounded-full font-bold text-base-100 uppercase">high</div>
+                    </div>
+                </div>
+
                 <div class="modal-action">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn">Close</button>
+                        <button class="btn btn-primary h-8">Close</button>
                     </form>
                 </div>
             </div>
