@@ -62,7 +62,7 @@
 
             </section>
             <!-- statistics -->
-            <section class="bg-base-100 rounded-t-lg py-2 px-4 shadow-sm flex gap-4 justify-between">
+            <section class="bg-base-100 rounded-t-lg py-2 px-4 shadow-sm flex gap-4 justify-between items-center">
                 <div class="flex gap-1 items-center">
                     <img src="assets/Aperture.png" class="bg-base-300 p-1 rounded-full">
                     <div>
@@ -87,9 +87,11 @@
         <dialog id="show_issue" class="modal">
             <div class="modal-box">
                 <h3 id="modal-title" class="text-lg font-bold">title</h3>
-                <div class="flex items-center gap-2 mt-2 mb-6">
-                    <div id="modal-status" class="badge bg-[#00A96E] rounded-full font-bold text-base-100">open/close</div>
-                    <p id="modal-tagline" class="text-sm text-gray-500">tagline</p>
+                <div class="flex flex-col sm:flex-row gap-2 mt-2 mb-6">
+                    <div id="modal-status" class="badge bg-[#00A96E] rounded-full font-bold text-base-100">open/close
+                    </div>
+                    <p id="modal-author" class="text-sm text-gray-500">author</p>
+                    <p id="modal-date" class="text-sm text-gray-500">time</p>
                 </div>
                 <div id="modal-labels" class="flex flex-wrap gap-2 items-center">
                     <!-- <div class="badge badge-warning border-warning badge-soft rounded-full">bug</div> -->
@@ -102,7 +104,8 @@
                     </div>
                     <div class="space-y-2">
                         <p class="text-sm text-gray-500">Priority:</p>
-                        <div id="modal-priority" class="badge badge-error rounded-full font-bold text-base-100 uppercase">high</div>
+                        <div id="modal-priority"
+                            class="badge badge-error rounded-full font-bold text-base-100 uppercase">high</div>
                     </div>
                 </div>
 

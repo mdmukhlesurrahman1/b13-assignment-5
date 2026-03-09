@@ -9,7 +9,8 @@ const allIssue = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 const showIssue = document.getElementById("show_issue");
 const modalTitle = document.getElementById("modal-title");
 const modalStatus = document.getElementById("modal-status");
-const modalTagline = document.getElementById("modal-tagline");
+const modalAuthor = document.getElementById("modal-author");
+const modalDate = document.getElementById("modal-date");
 const modalLabels = document.getElementById("modal-labels");
 const modalDescription = document.getElementById("modal-description");
 const modalAssignee = document.getElementById("modal-assignee");
@@ -129,13 +130,14 @@ async function showIssueModal(id) {
     if (issue.status === "open") {
         modalStatus.innerText = "Opened";
         modalStatus.className = "badge bg-[#00A96E] rounded-full font-bold text-base-100";
-        modalTagline.innerText = `• Opened by ${issue.author} • ${dateFormat(issue.createdAt)}`;
+        modalAuthor.innerText = `• Opened by ${issue.author}`;
     }
     else {
         modalStatus.innerText = "Closed";
         modalStatus.className = "badge bg-[#A855F7] rounded-full font-bold text-base-100";
-        modalTagline.innerText = `• Closed by ${issue.author} • ${dateFormat(issue.createdAt)}`;
+        modalAuthor.innerText = `• Closed by ${issue.author}`;
     }
+    modalDate.innerText = `• ${dateFormat(issue.createdAt)}`;
     // labels Add
     modalLabels.innerHTML = '';
     const labels = issue.labels;
@@ -145,10 +147,18 @@ async function showIssueModal(id) {
         label.innerText = lbl;
         modalLabels.append(label);
     }
-    // other information
     modalDescription.innerText = issue.description;
     modalAssignee.innerText = issue.assignee ? issue.assignee : "Not Found";
     modalPriority.innerText = issue.priority;
+    if(issue.priority === "high"){
+        modalPriority.className = "badge badge-error rounded-full font-bold text-base-100 uppercase";
+    }
+    else if(issue.priority === "medium"){
+        modalPriority.className = "badge badge-warning rounded-full font-bold text-base-100 uppercase";
+    }
+    else{
+        modalPriority.className = "badge bg-gray-500 rounded-full font-bold text-base-100 uppercase";
+    }
     showIssue.showModal();
 };
 
