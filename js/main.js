@@ -5,6 +5,13 @@ const count = document.getElementById("count");
 const loading = document.getElementById("loading");
 const allIssue = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
+// priority classes set
+const priorityClasses = {
+    'high': 'badge-error',
+    'medium': 'badge-warning',
+    'low': 'badge-ghost'
+};
+
 // modal get element by id
 const showIssue = document.getElementById("show_issue");
 const modalTitle = document.getElementById("modal-title");
@@ -101,7 +108,8 @@ function displayData(allData) {
                 <div class="p-4 space-y-2 h-full cursor-pointer" onclick="showIssueModal(${element.id})">
                     <div class="flex justify-between items-center">
                         <img src="assets/${element.status}.png" alt="">
-                        <div class="badge badge-soft badge-error rounded-full font-bold uppercase">
+                        <!-- conditional classes use -->
+                        <div class="badge badge-soft ${priorityClasses[element.priority.toLowerCase()] || 'badge-ghost'} rounded-full font-bold uppercase">
                         ${element.priority}</div>
                     </div>
                     <h2 class="font-bold">${element.title}</h2>
@@ -150,13 +158,13 @@ async function showIssueModal(id) {
     modalDescription.innerText = issue.description;
     modalAssignee.innerText = issue.assignee ? issue.assignee : "Not Found";
     modalPriority.innerText = issue.priority;
-    if(issue.priority === "high"){
+    if (issue.priority === "high") {
         modalPriority.className = "badge badge-error rounded-full font-bold text-base-100 uppercase";
     }
-    else if(issue.priority === "medium"){
+    else if (issue.priority === "medium") {
         modalPriority.className = "badge badge-warning rounded-full font-bold text-base-100 uppercase";
     }
-    else{
+    else {
         modalPriority.className = "badge bg-gray-500 rounded-full font-bold text-base-100 uppercase";
     }
     showIssue.showModal();
@@ -166,7 +174,7 @@ async function showIssueModal(id) {
 function search() {
     const inputValue = document.getElementById('search').value;
     const searchValue = inputValue.toLowerCase().trim();
-    if(!searchValue){
+    if (!searchValue) {
         return;
     }
     const searchIssue = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`;
