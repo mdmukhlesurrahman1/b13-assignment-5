@@ -152,6 +152,16 @@ async function showIssueModal(id) {
     showIssue.showModal();
 };
 
+// search option code
+function search() {
+    const inputValue = document.getElementById('search').value;
+    const searchValue = inputValue.toLowerCase().trim();
+    if(!searchValue){
+        return;
+    }
+    const searchIssue = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`;
+    getData(searchIssue);
+}
 
 getData(allIssue);
 switchTab(currentTab);
