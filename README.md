@@ -1,37 +1,25 @@
 
-    - 1️⃣ What is the difference between var, let, and const?
+    # 🛠️ GitHub Issue Tracker
 
-        Ans: 
-        var: Function-scoped, hoisted, can be redeclared and updated.
-        let: Block-scoped, hoisted (not initialized), cannot be redeclared, can be updated.
-        const: Block-scoped, hoisted (not initialized), cannot be redeclared or updated.
+A modern and user-friendly web application designed to simplify daily digital tasks. This project is a part of my specialized assignment and showcases core web development skills including the MERN stack fundamentals.
 
-    - 2️⃣ What is the spread operator (...)?
-         Ans: 
-         The spread operator (...) expands elements of arrays and strings or properties of objects into individual values.
+## 🚀 Live Demo
+Check out the live project here:  
+[GitHub Issue Tracker Live Link](https://github-issue-tracker-by-mukhles.netlify.app/)
 
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-        Ans:
-        The primary difference between map(), filter(), and forEach() is how they handle the return value and their core purpose:
+## 📖 Project Overview
+The main goal of this platform is to GitHub Issue Tracking.
 
-        * forEach() is for performing an action on each element and returns undefined.
-        * map() is for transforming each element into a new value and returns a new array of the same size  with the transformed elements.
-        * filter() is for selecting a subset of elements based on a condition and returns a new array with only the elements that pass the test.
+## ✨ Key Features
+* **Modern UI/UX:** A clean and professional design for better accessibility.
+* **Fully Responsive:** Optimized for mobile, tablet, and desktop screens.
+* **Fast Performance:** Lightweight and optimized for quick loading times.
+* **Interactive Tools:** Dynamic features implemented using modern JavaScript logic.
+* **Pixel-perfect:** implementation from Figma (no copy-paste)
 
-    - 4️⃣ What is an arrow function?
-        Ans:
-        Arrow function is a shorter syntax function.  (parameters) => expression
-        If there is only one parameter, parentheses are optional (x => x * x). If the body has a single expression, curly braces and return can be ignore.
-
-    - 5️⃣ What are template literals?
-        Ans:
-        Template literals are JavaScript string literals introduced in ES6 that allow for easier string interpolation and multi-line strings, enclosed by backticks (`) instead of quotes.
-
-        Benefits:
-        - String Interpolation: You can directly embed variables or expressions within strings using the ${variable} syntax.
-
-        - Multi-line Strings: Unlike regular strings, template literals can span multiple lines without needing special characters or concatenation.
-
-        - Tagged Templates: A more advanced form that allows you to parse template literals with a function, useful for custom string formatting or sanitization.
-
-        - Readability: They improve code maintainability by reducing the need for plus signs (+) for concatenation. 
+## 💻 Tech Stack
+This project was built using the following technologies:
+* **HTML5 & CSS3** - For structural semantic layout.
+* **Tailwind CSS** - For modern, utility-first styling.
+* **Daisy UI** - For use useble Component.
+* **JavaScript (ES6+)** - For dynamic functionality and interactivity.
